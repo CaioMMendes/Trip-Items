@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import { ProductsProvider } from "./contexts/productContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +21,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} flex flex-col`}>
         <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ProductsProvider>
+          <main className="flex-1 w-full md:flex md:justify-center">
+            {children}
+          </main>
+          <Footer />
+        </ProductsProvider>
       </body>
     </html>
   );
