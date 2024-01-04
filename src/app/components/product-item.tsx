@@ -52,7 +52,7 @@ const ProductItem = ({ products, setProducts }: ProductItemProps) => {
               </span> */}
               <span
                 className={`${
-                  product.checked && "line-through"
+                  product.checked && "line-through text-columbia-blue-white"
                 } text-lg text-ellipsis overflow-auto overflow-x-hidden`}
               >
                 {product.quantity} {product.product}
