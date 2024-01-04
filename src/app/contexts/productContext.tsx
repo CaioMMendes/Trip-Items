@@ -35,8 +35,8 @@ export const ProductsProvider: React.FC<ProductsProviderProps> = ({
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const storageProducts = localStorage.getItem("products");
-    if (storageProducts) {
+    const storageProducts = localStorage.getItem("products")!;
+    if (Array.isArray(JSON.parse(storageProducts))) {
       setProducts(JSON.parse(storageProducts));
     }
     setIsLoading(false);
