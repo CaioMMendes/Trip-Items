@@ -61,7 +61,7 @@ const Form = ({ products, setProducts }: FormProps) => {
           <label className="flex flex-col gap-1">
             Produto
             <input
-              type="tel"
+              type="text"
               required
               autoFocus
               title="Digite o nome do produto"
