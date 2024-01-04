@@ -39,8 +39,13 @@ export default function Home() {
   }
 
   const handleClearList = () => {
-    setProducts([]);
-    localStorage.setItem("products", JSON.stringify([]));
+    const confirm = window.confirm(
+      "Você tem certeza que deseja deletar todos os produtos?"
+    );
+    if (confirm) {
+      setProducts([]);
+      localStorage.setItem("products", JSON.stringify([]));
+    }
   };
 
   const handleSortBySelect = (e: ChangeEvent<HTMLSelectElement>) => {
