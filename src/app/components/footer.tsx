@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="flex flex-col justify-center items-center">
           <p>
             Você possuí <span className="font-medium">{products.length}</span>{" "}
-            produtos listados.
+            {productsChecked > 1 ? "produtos" : "produto"} listados.
           </p>
           {productsChecked >= 1 ? (
             <p>
@@ -28,7 +28,6 @@ const Footer = () => {
           )}
         </div>
       )}
-      {/* <Link href={"/infos"}>Infos</Link> */}
     </footer>
   );
 };

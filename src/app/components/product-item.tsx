@@ -47,8 +47,14 @@ const ProductItem = ({ products, setProducts }: ProductItemProps) => {
                 onChange={() => handleCheckboxChange({ id: product.id })}
               />
 
-              <span className="text-lg">{product.quantity}</span>
-              <span className="text-lg text-ellipsis overflow-auto overflow-x-hidden">
+              <span className={`${product.checked && "line-through"} text-lg`}>
+                {product.quantity}
+              </span>
+              <span
+                className={`${
+                  product.checked && "line-through"
+                } text-lg text-ellipsis overflow-auto overflow-x-hidden`}
+              >
                 {product.product}
               </span>
             </label>
