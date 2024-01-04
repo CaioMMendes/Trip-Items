@@ -47,15 +47,15 @@ const ProductItem = ({ products, setProducts }: ProductItemProps) => {
                 onChange={() => handleCheckboxChange({ id: product.id })}
               />
 
-              <span className={`${product.checked && "line-through"} text-lg`}>
+              {/* <span className={`${product.checked && "line-through"} text-lg`}>
                 {product.quantity}
-              </span>
+              </span> */}
               <span
                 className={`${
                   product.checked && "line-through"
                 } text-lg text-ellipsis overflow-auto overflow-x-hidden`}
               >
-                {product.product}
+                {product.quantity} {product.product}
               </span>
             </label>
             <div className="flex pr-5" title="Deletar">
