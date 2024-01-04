@@ -1,9 +1,10 @@
 "use client";
+import { ChangeEvent, useState } from "react";
 import Button from "./components/button";
 import Form from "./components/form";
 import ProductItem from "./components/product-item";
 import Spinner from "./components/spinner";
-import { useProductsContext } from "./contexts/productContext";
+import { Product, useProductsContext } from "./contexts/productContext";
 
 export interface ProductType {
   product: string;
@@ -14,10 +15,36 @@ export interface ProductType {
 
 export default function Home() {
   const { products, isLoading, setProducts } = useProductsContext();
+  const [sortBy, setSortBy] = useState("check");
+  let sortedProducts: Product[] | [] = [];
+
+  if (sortBy === "input") {
+    sortedProducts = products;
+  }
+
+  if (sortBy === "product") {
+    sortedProducts = products
+      .slice()
+      .sort((a, b) => a.product.localeCompare(b.product));
+  }
+
+  if (sortBy === "check") {
+    sortedProducts = products.slice().sort((a, b) => {
+      if (a.checked !== b.checked) {
+        return a.checked ? 1 : -1;
+      } else {
+        return a.product.localeCompare(b.product);
+      }
+    });
+  }
 
   const handleClearList = () => {
     setProducts([]);
     localStorage.setItem("products", JSON.stringify([]));
+  };
+
+  const handleSortBySelect = (e: ChangeEvent<HTMLSelectElement>) => {
+    setSortBy(e.target.value);
   };
 
   return (
@@ -28,7 +55,11 @@ export default function Home() {
         </h3>
         <Form products={products} setProducts={setProducts} />
         <div className="flex gap-5 items-center h-fit flex-col md:flex-row">
-          <select className="px-3 py-1.5 bg-paynes-gray w-full border outline-none h-fit flex-1 md:order-1 order-2 border-superiority-blue/70 text-zinc-50  rounded-lg focus:ring-columbia-blue focus:border-coluring-columbia-blue block  accent-black  dark:focus:ring-columbia-blue dark:focus:border-coluring-columbia-blue">
+          <select
+            className="px-3 py-1.5 bg-paynes-gray w-full border outline-none h-fit flex-1 md:order-1 order-2 border-superiority-blue/70 text-zinc-50  rounded-lg focus:ring-columbia-blue focus:border-coluring-columbia-blue block  accent-black  dark:focus:ring-columbia-blue dark:focus:border-coluring-columbia-blue"
+            onChange={(e) => handleSortBySelect(e)}
+            value={sortBy}
+          >
             <option value="check" className="w-fit ">
               Ordenar por marcados
             </option>
@@ -50,7 +81,7 @@ export default function Home() {
           </div>
         )}
         <ul className="flex flex-col  w-full md:justify-center ">
-          <ProductItem products={products} setProducts={setProducts} />
+          <ProductItem products={sortedProducts} setProducts={setProducts} />
         </ul>
       </div>
     </div>

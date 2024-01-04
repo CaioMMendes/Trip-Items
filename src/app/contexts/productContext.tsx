@@ -7,7 +7,7 @@ import {
   ReactNode,
 } from "react";
 
-interface Product {
+export interface Product {
   product: string;
   quantity: string;
   checked: boolean;

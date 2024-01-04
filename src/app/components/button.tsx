@@ -2,7 +2,7 @@ import React from "react";
 import { twMerge } from "tailwind-merge";
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant: string;
+  variant?: string;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
