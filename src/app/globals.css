@@ -10,3 +10,16 @@
     @apply h-full;
   }
 }
+
+::-webkit-scrollbar {
+  width: 0.45rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #536b78;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cee5f2;
+  border-radius: 999px;
+}
