@@ -9,7 +9,7 @@ const Header = () => {
         <span className="text-2xl">💼</span>
       </header>
       <Link
-        className="absolute right-2 md:right-4 -translate-y-1/2 top-1/2 text-columbia-blue-white"
+        className=" absolute right-2 md:right-4 -translate-y-1/2 top-1/2 text-columbia-blue-white"
         href={"/infos"}
       >
         Infos

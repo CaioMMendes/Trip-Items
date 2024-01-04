@@ -103,9 +103,7 @@ const Form = ({ products, setProducts }: FormProps) => {
         </div>
       </div>
 
-      <Button className="flex px-3 py-1.5 md:mt-[25px] font-medium bg-paynes-gray cursor-pointer hover:bg-columbia-blue/10 transition duration-300 rounded-lg">
-        Adicionar
-      </Button>
+      <Button variant="botao">Adicionar</Button>
     </form>
   );
 };

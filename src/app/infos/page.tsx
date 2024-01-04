@@ -9,7 +9,7 @@ const Infos = () => {
         acessar por outro dispositivo não terá as mesmas informações.{" "}
       </h2>
       <Link href={"/"} className="w-full">
-        <Button className="w-full px-3 py-1.5 font-medium bg-paynes-gray cursor-pointer hover:bg-columbia-blue/10 transition duration-300 rounded-lg">
+        <Button variant="botao" className="md:mt-0 w-full">
           Voltar a tela inicial
         </Button>
       </Link>
