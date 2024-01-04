@@ -8,9 +8,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         type="submit"
-        className={twMerge(
-          `${className} px-3 py-1.5 font-medium bg-paynes-gray cursor-pointer hover:bg-columbia-blue/10 transition duration-300 rounded-lg`
-        )}
+        className={twMerge(`${className} `)}
         ref={ref}
         {...props}
       />
